@@ -10,6 +10,7 @@ const session = require("express-session")
 const flash = require("connect-flash")
 
 //Configurações
+
     //Sessao
     app.use(session({
         secret: "joathadesenvolvedor",
@@ -19,6 +20,7 @@ const flash = require("connect-flash")
     app.use(flash())
 
     //Middleware
+
     app.use((req, res, next)=>{
         res.locals.success_msg = req.flash("success_msg")
         res.locals.error_msg = req.flash("error_msg")
@@ -26,6 +28,7 @@ const flash = require("connect-flash")
     })
     
    //Handlebars
+
     app.engine('handlebars', handlebars({defaultLayout: 'main'}))
     app.set('view engine', 'handlebars')
 
@@ -33,6 +36,7 @@ const flash = require("connect-flash")
     app.use(express.json())
 
     //Mongosse
+
     mongoose.connect("mongodb://localhost/blogapp", {
         useNewUrlParser: true, 
         useUnifiedTopology: true,
@@ -44,15 +48,15 @@ const flash = require("connect-flash")
         console.log("Erro ao se conectar " +err)
     })
 //Public
+
     app.use(express.static(parth.join(__dirname, "public")))
 
-    
-
-
 //Rotas
+
     app.use('/admin', admin)
 
 //Outros
+
 const PORT = 8081
 app.listen(PORT, ()=>{
     console.log("Servidor Rodando!")
