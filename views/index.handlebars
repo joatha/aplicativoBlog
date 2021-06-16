@@ -1,0 +1,28 @@
+<div class="bg-light p-5 rounded-lg m-3">
+  <h1 class="display-4">Olá, bem-vindo!</h1>
+  <p class="lead">Este é meu primeiro sistema de blog pessoal, feito totalmente em JavaScript e NodeJS</p>
+  <hr class="my-4">
+  <p>Fique livre para copiar o codigo para estudo.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Crie uma conta</a>
+</div>
+
+<hr>
+
+<h2>Postagens recentes:</h2>
+
+{{#each postagens}}
+<div class="card mt-3">
+    <div class="card-body">
+        <h3>{{titulo}}</h3>
+        <p>{{descricao}}</p>
+        <a href="/postagem/{{slug}}"> <button class="btn btn btn-info">Leia mais</button></a>
+         <hr>
+        <small>Categoria: {{categoria.nome}}</small><br>
+        <small> Data de publicação: {{data}}</small>
+       
+    </div>
+</div>
+
+{{else}}
+<h5>Nenhuma postagem</h5>
+{{/each}}
