@@ -36,6 +36,7 @@ require("./config/auth")(passport)
         res.locals.success_msg = req.flash("success_msg")
         res.locals.error_msg = req.flash("error_msg")
         res.locals.error = req.flash("error")
+        res.locals.user = req.user || null;
         next()
     })
     
@@ -135,7 +136,7 @@ require("./config/auth")(passport)
 
 //Outros
 
-const PORT = 8081
+const PORT = process.env.PORT || 8081
 app.listen(PORT, ()=>{
     console.log("Servidor Rodando!")
 })
